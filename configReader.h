@@ -6,11 +6,13 @@
 
 typedef struct config config_t;
 
-int ReadConfigFile(const char*, config_t**);
+int CfgReader_ReadConfigFile(const char*, config_t**);
 
-char* GetValueByParam(config_t*, const char*);
+char* CfgReader_GetValueByParam(config_t*, const char*);
 
-void SetValueByParam(config_t*, const char*. char*);
+void CfgReader_SetValueByParam(config_t*, const char*. char*);
+
+int CfgReader_GedtLastError(void);
 
 #endif // _CONFIGREADER_H_
 
