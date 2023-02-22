@@ -17,7 +17,7 @@ struct config_int {
     char* value;
 };
 
-int ReadConfigFile(const char* file, config_t** configs) {
+int CfgReader_ReadConfigFile(const char* file, config_t** configs) {
 
     if (*configs == NULL) {
 
@@ -109,7 +109,7 @@ int ReadConfigFile(const char* file, config_t** configs) {
     }
 }
 
-char* GetValueByParam(config_t* configs, const char* param) {
+char* CfgReader_GetValueByParam(config_t* configs, const char* param) {
 
     for (int i = 0; i < index; i++) {
 
@@ -122,7 +122,7 @@ char* GetValueByParam(config_t* configs, const char* param) {
     return NULL;
 }
 
-int SetValueByParam(config_t* configs, const char* param, char* value) {
+int CfgReader_SetValueByParam(config_t* configs, const char* param, char* value) {
 
     for (int i = 0; i < index; i++) {
 
@@ -138,4 +138,12 @@ int SetValueByParam(config_t* configs, const char* param, char* value) {
     }
 
     return NULL;
+}
+
+
+int CfgReader_GetLastError() {
+    int retVal = lastError;
+    lastError = 0;
+
+    return retVal;
 }
